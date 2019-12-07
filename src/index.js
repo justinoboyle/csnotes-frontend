@@ -9,7 +9,7 @@ if(!localStorage.token) {
     localStorage.token = Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2)
 }
 
-const _store = new Store(localStorage.__CUSTOMAPI || 'https://api.csnotes.app')
+const _store = new Store(localStorage.__CUSTOMAPI || 'http://localhost:3021/')
 
 ReactDOM.render(<App store={_store} />, document.getElementById('root'));
 

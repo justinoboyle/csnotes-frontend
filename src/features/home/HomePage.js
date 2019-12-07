@@ -28,7 +28,7 @@ export default class HomePage extends Component {
                 this.props.postMetaStore
                   .checkForNew({ search: event.target.value }, () => this.setState({}))
                   .then()
-                  .catch(console.log)
+                  .catch((e) => console.log('onSetStateChange'))
               }}
               placeholder="I want to learn about..."
             />

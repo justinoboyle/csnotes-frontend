@@ -9,13 +9,14 @@ export default class SearchTable extends Component {
   }
 
   get results() {
+    
     let keywords = []
     if (this.props.query) {
       keywords = this.props.query.toLowerCase().split(" ")
     }
     let scores = this.props.items.map(a => ({
       ...a,
-      score: getScore([a.name, ...a.tags].join(" "), keywords),
+      score: getScore([a.title, ...a.tags].join(" "), keywords),
     }))
     scores = scores.sort((a, b) => (a.score > b.score ? -1 : 1))
     return scores.slice(0, this.props.maxItems)
@@ -26,23 +27,17 @@ export default class SearchTable extends Component {
         <tbody>
           <tr>
             <th className="full-col">Name</th>
-            <th> </th>
+        
             <th>Date</th>
           </tr>
           {this.results.map(result => {
             return (
               <tr key={`${result.poster}/${result.name}`}>
                 <td className="full-col">
-                  <Link to={`/article/${result.poster}/${result.name}`}>{result.name}</Link>
+                  <Link to={`/article/${result.poster}/${result.name}`}>{result.title}</Link>
                 </td>
-                <td>
-                  {result.tags.map(tag => (
-                    <span key={`tag${tag}/article/${result.poster}/${result.name} `} className="tag">
-                      {tag}
-                    </span>
-                  ))}
-                </td>
-                <td>{new Date(result.date || 0).toLocaleDateString("en-GB", {day: 'numeric', month: 'long', year: 'numeric'})}</td>
+                
+                <td>{new Date(result.date || 0).toLocaleDateString("en-GB", {day: 'numeric', month: 'short'})}</td>
               </tr>
             )
           })}

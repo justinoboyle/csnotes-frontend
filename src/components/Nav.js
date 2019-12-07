@@ -20,7 +20,7 @@ export default class Nav extends Component {
               <Link to='/'>Search</Link>
             </li>
             <li>
-              <a href={`https://api.csnotes.app/auth/token/${localStorage.token}`}>Log In</a>
+              {/* <a href={`http://localhost:3021/auth/token/${localStorage.token}`}>Log In</a> */}
             </li>
             <li>
               <Link to="/post">+ Post</Link>

@@ -5,15 +5,15 @@ export default class Comment extends Component {
   render() {
     return (
       <>
-          <div class="comment">
-            {/* <span class="comment-upvote-downvote">
+          <div className="comment">
+            {/* <span className="comment-upvote-downvote">
               <button>⇡</button>
               <button>⇣</button>
             </span> */}
-            <span class="comment-content-area">
+            <span className="comment-content-area">
               <small>@justinoboyle / 3 min ago</small>
               <span>This is a top-level comment.</span>
-              <small class="comment-actions">
+              <small className="comment-actions">
                 <button>Reply</button>
                 <button>Report</button>
               </small>

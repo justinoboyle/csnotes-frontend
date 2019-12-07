@@ -5,7 +5,7 @@ export default class CommentThread extends Component {
   render() {
     return (
       <>
-          <div class="comment-thread">
+          <div className="comment-thread">
               {this.props.children}
           </div>
       </>

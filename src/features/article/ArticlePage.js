@@ -18,7 +18,6 @@ export default class ArticlePage extends Component {
     name: "name",
   }
   componentDidMount() {
-    console.log("componentDidMount")
     this.props.postContentStore
       .checkForNew(
         ({
@@ -28,11 +27,10 @@ export default class ArticlePage extends Component {
         () => this.checkPostContentStore()
       )
       .then()
-      .catch(console.log)
+      .catch((e) => console.log('componentDidMount', e))
   }
 
   checkPostContentStore() {
-    console.log("checkPostContentStore")
     if (
       this.props.postContentStore.userposts &&
       this.props.postContentStore.userposts[this.props.match.params.username] &&
@@ -79,8 +77,8 @@ export default class ArticlePage extends Component {
     return (
       <>
         <h1>{this.state.title}</h1>
-        <div class="author">By @{this.state.author}</div>
-        <div class="tags">
+        <div className="author">By @{this.state.poster}</div>
+        <div className="tags">
           <Tag name="javascript" />
           <Tag name="debugging" />
         </div>
@@ -90,7 +88,7 @@ export default class ArticlePage extends Component {
         </Toast> */}
         <main>
           <section>
-            <div class="content-section">
+            <div className="content-section">
             <ReactMarkdown source={this.state.content} />
             </div>
           </section>
